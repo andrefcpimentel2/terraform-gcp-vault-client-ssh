@@ -31,6 +31,12 @@ variable "sku" {
   default     = "ubuntu-os-cloud/ubuntu-1804-lts"
 }
 
+variable "ssh_user" {
+  type        = string
+  description = "ubuntu"
+
+}
+
 variable "ssh_pub_key_file" {
   type        = string
   description = "ssh_pub_key_file"
