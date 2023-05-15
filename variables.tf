@@ -33,7 +33,7 @@ variable "sku" {
 
 variable "ssh_user" {
   type        = string
-  description = "ubuntu"
+  default = "ubuntu"
 
 }
 

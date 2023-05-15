@@ -6,6 +6,7 @@ resource "google_compute_network" "vpc" {
 }
 
 resource "google_compute_subnetwork" "network_subnet" {
+  project = var.project
   name          = "${var.namespace}-subnet"
   ip_cidr_range = var.network-subnet-cidr
   network       = google_compute_network.vpc.name
@@ -14,6 +15,7 @@ resource "google_compute_subnetwork" "network_subnet" {
 
 
 resource "google_compute_firewall" "allow-ssh" {
+  project = var.project
   name    = "${var.namespace}-fw-allow-ssh"
   network = google_compute_network.vpc.name
   allow {
@@ -25,15 +27,15 @@ resource "google_compute_firewall" "allow-ssh" {
   target_tags = ["ssh"]
 }
 
-# allow rdp
-resource "google_compute_firewall" "allow-rdp" {
-  name    = "${var.namespace}-fw-allow-rdp"
-  network = google_compute_network.vpc.name
-  allow {
-    protocol = "tcp"
-    ports    = ["3389"]
-  }
+# # allow rdp
+# resource "google_compute_firewall" "allow-rdp" {
+#   name    = "${var.namespace}-fw-allow-rdp"
+#   network = google_compute_network.vpc.name
+#   allow {
+#     protocol = "tcp"
+#     ports    = ["3389"]
+#   }
 
-  source_ranges = ["0.0.0.0/0"]
-  target_tags = ["rdp"]
-}
+#   source_ranges = ["0.0.0.0/0"]
+#   target_tags = ["rdp"]
+# }
