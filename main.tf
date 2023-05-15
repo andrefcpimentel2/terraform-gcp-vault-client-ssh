@@ -35,7 +35,6 @@ resource "google_compute_instance" "vm_instance_public" {
 
   network_interface {
     network       = google_compute_network.vpc.name
-    subnetwork    = google_compute_subnetwork.network_subnet.name
     access_config { }
   }
 } 
