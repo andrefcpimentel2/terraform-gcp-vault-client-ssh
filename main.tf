@@ -20,7 +20,7 @@ resource "google_compute_instance" "vm_instance_public" {
   tags         = ["ssh","http"]
 
   metadata = {
-    sshKeys = "${var.ssh_user}:${file(var.ssh_pub_key_file)}"
+    sshKeys = "${var.ssh_user}:${var.ssh_pub_key_file}"
   }
 
   boot_disk {
