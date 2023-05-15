@@ -1,4 +1,5 @@
 resource "google_compute_network" "vpc" {
+  project = var.project
   name                    = "${var.namespace}-vpc"
   auto_create_subnetworks = "false"
   routing_mode            = "GLOBAL"
