@@ -14,6 +14,7 @@ EOF
 }
 
 resource "google_compute_instance" "vm_instance_public" {
+  project = var.project
   name         = "${var.namespace}-vm"
   machine_type = var.linux_instance_type
   hostname     = "${var.namespace}-vm${random_id.instance_id.hex}"
