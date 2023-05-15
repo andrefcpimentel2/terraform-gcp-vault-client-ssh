@@ -1,7 +1,7 @@
 variable "project" {
   description = "project"
 }
-variable "region" {
+variable "gcp_region" {
   description = "region"
   default    = "europe-west2"
 }
