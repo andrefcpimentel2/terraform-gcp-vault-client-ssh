@@ -19,7 +19,7 @@ resource "google_compute_instance" "vm_instance_public" {
   hostname     = "${var.namespace}-vm${random_id.instance_id.hex}"
   tags         = ["ssh","http"]
 
-  metadata {
+  metadata = {
     sshKeys = "${var.ssh_user}:${file(var.ssh_pub_key_file)}"
   }
 
