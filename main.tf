@@ -24,6 +24,11 @@ resource "google_compute_instance" "vm_instance_public" {
     sshKeys = "${var.ssh_user}:${var.ssh_pub_key_file}"
   }
 
+  shielded_instance_config {
+      enable_secure_boot          = true
+      enable_integrity_monitoring = true
+    }
+
   boot_disk {
     initialize_params {
       image = var.sku
